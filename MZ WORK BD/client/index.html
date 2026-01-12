@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MZ Profit BD - Invest Smart, Earn Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f9fafb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-buttons button {
+            margin-left: 15px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn-large {
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-large.primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-large.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-large.secondary {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn-large.secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Plans Section */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .plan-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .plan-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .plan-card.popular {
+            border-color: #667eea;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+
+        .plan-card .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .plan-price {
+            font-size: 36px;
+            font-weight: 700;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .plan-features {
+            text-align: left;
+            margin: 30px 0;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .plan-features li {
+            list-style: none;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .plan-features li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .wallet-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .wallet-amount {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .wallet-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .wallet-buttons button {
+            padding: 10px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .wallet-buttons button:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        /* Ads Grid */
+        .ads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .ad-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .ad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .ad-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .ad-description {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .ad-reward {
+            font-size: 16px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .btn-click {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-click:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-click:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+        }
+
+        /* Timer Modal */
+        .timer-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .timer-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .timer-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        /* Messages */
+        .success-message, .error-message {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .success-message.show {
+            display: block;
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .error-message.show {
+            display: block;
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .daily-limit-warning {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            color: #92400e;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        /* Forms */
+        form {
+            max-width: 500px;
+        }
+
+        form div {
+            margin-bottom: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        form input, form select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        form input:focus, form select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid #667eea;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-handle {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-text {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .badge-verified {
+            background: #dcfce7;
+            color: #166534;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        footer h4 {
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .nav-buttons button {
+                flex: 1;
+                min-width: 100px;
+                margin: 0;
+                font-size: 13px;
+                padding: 8px 12px;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+                line-height: 1.3;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-large {
+                padding: 12px 20px;
+                font-size: 14px;
+                width: 100%;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .features-grid, .plans-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-card {
+                padding: 20px;
+            }
+
+            .stat-value {
+                font-size: 24px;
+            }
+
+            .ads-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard {
+                gap: 20px;
+            }
+
+            .wallet-buttons {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .wallet-buttons button {
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .feature-icon {
+                font-size: 36px;
+            }
+
+            form div {
+                margin-bottom: 15px;
+            }
+
+            form label {
+                font-size: 13px;
+            }
+
+            form input, form select {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+            table th, table td {
+                padding: 8px 5px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .btn-click {
+                padding: 8px;
+                font-size: 13px;
+            }
+
+            footer {
+                padding: 40px 0 15px;
+            }
+
+            .stats-grid {
+                gap: 15px;
+            }
+
+            .stat {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .plan-price {
+                font-size: 28px;
+            }
+
+            .wallet-amount {
+                font-size: 28px;
+            }
+
+            .nav-buttons button {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+
+            .plan-features {
+                font-size: 12px;
+            }
+
+            .plan-features li {
+                padding: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <!-- Header Navigation -->
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">💰 MZ Profit BD</div>
+                    <div class="nav-buttons" id="nav-auth-btns">
+                        <button class="btn-secondary" onclick="showAuthPage()">Login</button>
+                        <button class="btn-primary" onclick="toggleRegister(); showAuthPage()">Sign Up</button>
+                    </div>
+                    <div class="nav-buttons" id="nav-main-btns" style="display: none;">
+                        <button class="btn-secondary" onclick="showSection('profile')">Profile</button>
+                        <button class="btn-secondary" onclick="showSection('transactions')">Transactions</button>
+                        <button class="btn-secondary" onclick="showSection('campaigns')">Campaigns</button>
+                        <button class="btn-secondary" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section (Landing Page) -->
+        <div id="landing-section">
+            <section class="hero">
+                <div class="container">
+                    <h1>Invest Smart, Earn Daily</h1>
+                    <p>A Marketplace Connecting Micro-Investors with Vetted Businesses</p>
+                    <div class="hero-buttons">
+                        <button class="btn-large primary" onclick="toggleRegister(false); showAuthPage()">Sign Up & Start Earning</button>
+                        <button class="btn-large secondary" onclick="scrollToSection('how-it-works')">How It Works</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section>
+                <div class="container">
+                    <h2 style="text-align: center;">Why Choose MZ Profit BD?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🏦</div>
+                            <h3>Low Entry Barrier</h3>
+                            <p>Start investing with just 100 BDT. No complex requirements, no hidden fees. Perfect for first-time investors.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">✓</div>
+                            <h3>Verified & Secure</h3>
+                            <p>Every business is manually vetted. Every transaction is verified by our admin team. Your investment is protected.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💸</div>
+                            <h3>Daily Earnings</h3>
+                            <p>Complete simple ad-clicking tasks daily and earn real money. 30 ads = 5 TK. Withdraw anytime via bKash/Nagad.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Plans -->
+            <section id="plans-section" style="background: #f9fafb;">
+                <div class="container">
+                    <h2 style="text-align: center;">Simple Plans. Clear Returns.</h2>
+                    <div class="plans-grid">
+                        <div class="plan-card">
+                            <h3>Starter</h3>
+                            <div class="plan-price">100 <span style="font-size: 18px;">BDT/month</span></div>
+                            <ul class="plan-features">
+                                <li>5 Daily Ad Tasks</li>
+                                <li>Earn 5 TK per 30 Ads</li>
+                                <li>Withdraw Anytime</li>
+                                <li>24/7 Support</li>
+                                <li>Basic Dashboard</li>
+                            </ul>
+                            <button class="btn-primary" style="width: 100%; padding: 12px;" onclick="selectPlan(100)">Get Started</button>
+                        </div>
+
+                        <div class="plan-card popular">
+                            <div class="badge">Most Popular</div>
+                            <h3>Growth</h3>
+                            <div class="plan-price">500 <span style="font-size: 18px;">BDT/month</span></div>
+                            <ul class="plan-features">
+                                <li>5 Daily Ad Tasks</li>
+                                <li>Earn 5 TK per 30 Ads</li>
+                                <li>Withdraw Anytime</li>
+                                <li>Priority Support</li>
+                                <li>Advanced Dashboard</li>
+                            </ul>
+                            <button class="btn-primary" style="width: 100%; padding: 12px;" onclick="selectPlan(500)">Get Started</button>
+                        </div>
+
+                        <div class="plan-card">
+                            <h3>Premium</h3>
+                            <div class="plan-price">1,000 <span style="font-size: 18px;">BDT/month</span></div>
+                            <ul class="plan-features">
+                                <li>10 Daily Ad Tasks</li>
+                                <li>Earn 5 TK per 30 Ads</li>
+                                <li>Instant Withdrawals</li>
+                                <li>VIP Support</li>
+                                <li>Premium Dashboard</li>
+                            </ul>
+                            <button class="btn-primary" style="width: 100%; padding: 12px;" onclick="selectPlan(1000)">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section id="how-it-works">
+                <div class="container">
+                    <h2 style="text-align: center;">Turn 30 Seconds into Real Money</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">5️⃣</div>
+                            <h3>Click 5 Ads Daily</h3>
+                            <p>Every investor gets 5 daily ad opportunities. Premium plan members get 10 ads per day for double the earning potential.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⏱️</div>
+                            <h3>30 Seconds Per Ad</h3>
+                            <p>Stay on the sponsored link for 30 seconds. Our server-side timer ensures fair tracking and prevents skipping.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💰</div>
+                            <h3>Earn 5 TK Per 30 Ads</h3>
+                            <p>Complete 30 ads to earn 5 TK. Your earnings are tracked in real-time and can be withdrawn anytime.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats -->
+            <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <div class="container">
+                    <div class="stats-grid" style="gap: 40px;">
+                        <div class="stat" style="border-left: none; background: transparent;">
+                            <div class="stat-value" style="color: white; font-size: 36px;">10,000+</div>
+                            <div class="stat-label" style="color: rgba(255,255,255,0.9);">Active Investors</div>
+                        </div>
+                        <div class="stat" style="border-left: none; background: transparent;">
+                            <div class="stat-value" style="color: white; font-size: 36px;">500+</div>
+                            <div class="stat-label" style="color: rgba(255,255,255,0.9);">Verified Companies</div>
+                        </div>
+                        <div class="stat" style="border-left: none; background: transparent;">
+                            <div class="stat-value" style="color: white; font-size: 36px;">2M+</div>
+                            <div class="stat-label" style="color: rgba(255,255,255,0.9);">Ads Completed</div>
+                        </div>
+                        <div class="stat" style="border-left: none; background: transparent;">
+                            <div class="stat-value" style="color: white; font-size: 36px;">5M+</div>
+                            <div class="stat-label" style="color: rgba(255,255,255,0.9);">BDT Distributed</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section style="background: #f9fafb;">
+                <div class="container">
+                    <h2 style="text-align: center;">Trusted by 10,000+ Investors</h2>
+                    <p style="text-align: center; color: #6b7280; margin-bottom: 40px;">Real people, real earnings. See what our community has to say.</p>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-author">Rahul Ahmed</div>
+                            <div class="testimonial-handle">@rahul_dhaka</div>
+                            <div class="testimonial-text">"I started with just 100 BDT and now I earn 15-20 TK daily. It's simple, honest work that actually pays. Perfect for students like me!"</div>
+                            <div class="badge-verified">✓ Verified Investor</div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-author">Fatima Khatun</div>
+                            <div class="testimonial-handle">@fatima_ctg</div>
+                            <div class="testimonial-text">"As a housewife, this platform gives me financial independence. I complete my 5 ads during my free time and it helps with household expenses."</div>
+                            <div class="badge-verified">✓ Verified Investor</div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-author">Karim Hassan</div>
+                            <div class="testimonial-handle">@karim_investor</div>
+                            <div class="testimonial-text">"The transparency is what sold me. Every transaction is tracked, every click is logged. I've withdrawn 1,500 TK so far and it's all legit."</div>
+                            <div class="badge-verified">✓ Verified Investor</div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-author">Nusrat Jahan</div>
+                            <div class="testimonial-handle">@nusrat_bd</div>
+                            <div class="testimonial-text">"Finally, a platform that doesn't require huge investments. Started with 500 BDT and already seeing consistent returns. Highly recommend!"</div>
+                            <div class="badge-verified">✓ Verified Investor</div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-author">Shakib Rahman</div>
+                            <div class="testimonial-handle">@shakib_tech</div>
+                            <div class="testimonial-text">"The admin verification process made me trust this platform. They actually check NIDs and transactions manually. No scams here!"</div>
+                            <div class="badge-verified">✓ Verified Investor</div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-author">Ayesha Begum</div>
+                            <div class="testimonial-handle">@ayesha_sylhet</div>
+                            <div class="testimonial-text">"I was skeptical at first, but after my first withdrawal went through smoothly, I upgraded to the 1,000 BDT plan. Best decision ever!"</div>
+                            <div class="badge-verified">✓ Verified Investor</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Security Section -->
+            <section>
+                <div class="container">
+                    <h2 style="text-align: center;">Your Security is Our Priority</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🛡️</div>
+                            <h3>NID Verification</h3>
+                            <p>Every user must provide a valid National ID card. Fake IDs result in permanent bans.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👨‍💼</div>
+                            <h3>Manual Admin Review</h3>
+                            <p>All withdrawals and transactions are manually reviewed by our admin team to prevent fraud.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🤖</div>
+                            <h3>Anti-Fraud System</h3>
+                            <p>Advanced detection blocks VPNs, bots, and automation scripts. Server-side timers prevent cheating.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔐</div>
+                            <h3>Secure Payment</h3>
+                            <p>All bKash/Nagad transactions are verified with TrxID. Your money is protected at every step.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA -->
+            <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center;">
+                <div class="container">
+                    <h2 style="color: white;">Start Earning Today</h2>
+                    <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9;">Join 10,000+ investors building wealth, one click at a time</p>
+                    <button class="btn-large primary" onclick="toggleRegister(false); showAuthPage()" style="background: white; color: #667eea; margin: 0 auto;">Create Free Account</button>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px;">
+                        <div>
+                            <h4>About MZ Profit BD</h4>
+                            <p style="color: #d1d5db; font-size: 14px;">Empowering micro-investors across Bangladesh since 2025. Making investment accessible to everyone.</p>
+                        </div>
+                        <div>
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="#how-it-works">How It Works</a></li>
+                                <li><a href="#plans-section">Investment Plans</a></li>
+                                <li><a href="#security">Security & Terms</a></li>
+                                <li><a href="#faq">FAQ</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Connect With Us</h4>
+                            <ul>
+                                <li><a href="#">📘 Facebook Community</a></li>
+                                <li><a href="#">💬 WhatsApp Support</a></li>
+                                <li><a href="mailto:support@mzprofitbd.com">📧 Email Support</a></li>
+                                <li><a href="#">🎯 Telegram Channel</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Get Started</h4>
+                            <ul>
+                                <li><a href="#" onclick="showAuthPage()">Sign Up</a></li>
+                                <li><a href="#" onclick="showAuthPage()">Login</a></li>
+                                <li><a href="#">Investor Handbook</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <p>&copy; 2025 MZ Profit BD. All rights reserved. | <a href="#" style="color: #9ca3af;">Terms of Service</a> | <a href="#" style="color: #9ca3af;">Privacy Policy</a></p>
+                        <p style="margin-top: 10px;">Licensed & Regulated • 256-bit Encryption • 24/7 Monitoring</p>
+                    </div>
+                </div>
+            </footer>
+
+        <!-- Auth Section -->
+        <div id="auth-section" style="display: none;">
+            <div style="min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+                <div class="card" style="max-width: 420px; width: 100%;">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <div class="logo" style="font-size: 32px; margin-bottom: 10px;">💰 MZ Profit BD</div>
+                        <p id="auth-subtitle" style="color: #6b7280;">Join thousands earning daily</p>
+                    </div>
+
+                    <div id="error-msg-auth" class="error-message"></div>
+
+                    <!-- Login Form -->
+                    <div id="login-form-wrapper">
+                        <form id="auth-form" onsubmit="handleAuth(event)">
+                            <div>
+                                <label>Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                            <div>
+                                <label>Password</label>
+                                <input type="password" id="password" name="password" placeholder="••••••••" required>
+                            </div>
+                            <button type="submit" style="margin: 20px 0;">Login to Your Account</button>
+                        </form>
+                        <p style="text-align: center; color: #6b7280; margin-top: 15px; font-size: 14px;">
+                            Don't have an account? <a href="#" onclick="toggleRegister()" style="color: #667eea; font-weight: 600; text-decoration: none;">Create one now</a>
+                        </p>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div id="register-form-wrapper" style="display: none;">
+                        <form id="register-form-actual" onsubmit="handleAuth(event)">
+                            <div>
+                                <label>Full Name</label>
+                                <input type="text" id="username" name="username" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label>Email Address</label>
+                                <input type="email" id="email-reg" name="email-reg" placeholder="your@email.com" required>
+                            </div>
+                            <div>
+                                <label>Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+880 1XXX XXXXXX" required>
+                            </div>
+                            <div>
+                                <label>Account Type</label>
+                                <select id="role" name="role" required style="padding: 10px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 14px;">
+                                    <option value="">Select your role...</option>
+                                    <option value="investor">Investor (Earn by clicking ads)</option>
+                                    <option value="company">Company (Post ads & campaigns)</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Password</label>
+                                <input type="password" id="password-reg" name="password-reg" placeholder="••••••••" required>
+                            </div>
+                            <div>
+                                <label style="display: flex; align-items: center; font-weight: 400;">
+                                    <input type="checkbox" required style="margin-right: 8px; width: auto;">
+                                    I agree to the Terms of Service and Privacy Policy
+                                </label>
+                            </div>
+                            <button type="submit" style="margin: 20px 0;">Create Account</button>
+                        </form>
+                        <p style="text-align: center; color: #6b7280; margin-top: 15px; font-size: 14px;">
+                            Already have an account? <a href="#" onclick="toggleRegister()" style="color: #667eea; font-weight: 600; text-decoration: none;">Login here</a>
+                        </p>
+                    </div>
+
+                    <div style="border-top: 1px solid #e5e7eb; margin-top: 20px; padding-top: 20px; text-align: center;">
+                        <button class="btn-secondary" style="width: 100%; padding: 10px;" onclick="showLandingPage()">Back to Home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App Section -->
+        <div id="main-section" style="display: none;">
+            <div class="container" style="padding-top: 30px; padding-bottom: 30px;">
+                <div id="success-msg" class="success-message"></div>
+                <div id="error-msg" class="error-message"></div>
+
+                <!-- Dashboard Section -->
+                <div id="dashboard-section">
+                    <div class="dashboard">
+                        <div>
+                            <div class="wallet-card">
+                                <div style="opacity: 0.9;">Wallet Balance</div>
+                                <div class="wallet-amount" id="wallet-balance">0.00 TK</div>
+                                <div class="wallet-buttons">
+                                    <button onclick="showSection('deposit')">Deposit</button>
+                                    <button onclick="showSection('withdraw')">Withdraw</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="card">
+                                <h3>Today's Progress</h3>
+                                <div class="stats-grid" style="margin-top: 20px;">
+                                    <div class="stat">
+                                        <div class="stat-value" id="clicks-today">0</div>
+                                        <div class="stat-label">Clicks Today</div>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="stat-value">5</div>
+                                        <div class="stat-label">Daily Limit</div>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="stat-value" id="earned-today">0</div>
+                                        <div class="stat-label">Earned Today</div>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="stat-value" id="remaining-ads">5</div>
+                                        <div class="stat-label">Remaining Ads</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="daily-limit-msg" class="daily-limit-warning">
+                        ⚠️ You've reached your daily ad limit (5/5). Come back tomorrow for more ads!
+                    </div>
+
+                    <h2 style="margin-top: 40px;">Available Ads</h2>
+                    <div class="ads-grid" id="ads-container"></div>
+                </div>
+
+                <!-- Deposit Section -->
+                <div id="deposit-section" style="display: none;">
+                    <div class="card" style="max-width: 500px; margin: 20px auto;">
+                        <h2>Deposit Funds</h2>
+                        <p style="color: #6b7280; margin: 15px 0; background: #f0f3ff; padding: 15px; border-radius: 6px;">Send payment to: <strong>+880 17 756 74742 (bKash/Nagad)</strong></p>
+                        <form onsubmit="handleDeposit(event)">
+                            <div>
+                                <label>Amount (BDT):</label>
+                                <select id="deposit-amount" required>
+                                    <option value="">Select Amount</option>
+                                    <option value="100">100 BDT</option>
+                                    <option value="500">500 BDT</option>
+                                    <option value="1000">1000 BDT</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Payment Method:</label>
+                                <select id="payment-method" required>
+                                    <option value="bkash">bKash</option>
+                                    <option value="nagad">Nagad</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Transaction ID:</label>
+                                <input type="text" id="payment-trx-id" placeholder="Enter bKash/Nagad TrxID" required>
+                            </div>
+                            <button type="submit">Submit Deposit Request</button>
+                        </form>
+                        <p style="color: #6b7280; margin-top: 15px; font-size: 12px;">⏱️ Admin will verify within 48-72 hours</p>
+                        <button class="btn-secondary" style="width: 100%; margin-top: 10px; padding: 10px;" onclick="showSection('dashboard')">Back to Dashboard</button>
+                    </div>
+                </div>
+
+                <!-- Withdraw Section -->
+                <div id="withdraw-section" style="display: none;">
+                    <div class="card" style="max-width: 500px; margin: 20px auto;">
+                        <h2>Withdraw Funds</h2>
+                        <form onsubmit="handleWithdraw(event)">
+                            <div>
+                                <label>Amount (BDT):</label>
+                                <input type="number" id="withdraw-amount" min="100" required>
+                            </div>
+                            <div>
+                                <label>Payment Method:</label>
+                                <select id="withdraw-method" required>
+                                    <option value="bkash">bKash</option>
+                                    <option value="nagad">Nagad</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>bKash/Nagad Number:</label>
+                                <input type="tel" id="withdraw-phone" placeholder="Enter your bKash/Nagad number" required>
+                            </div>
+                            <button type="submit">Request Withdrawal</button>
+                        </form>
+                        <p style="color: #6b7280; margin-top: 15px; font-size: 12px;">⏱️ Admin will process within 48 hours</p>
+                        <button class="btn-secondary" style="width: 100%; margin-top: 10px; padding: 10px;" onclick="showSection('dashboard')">Back to Dashboard</button>
+                    </div>
+                </div>
+
+                <!-- Profile Section -->
+                <div id="profile-section" style="display: none;">
+                    <div class="card" style="max-width: 500px; margin: 20px auto;">
+                        <h2>User Profile</h2>
+                        <div id="profile-content" style="margin-top: 20px;">
+                            <p><strong>Username:</strong> <span id="profile-username">-</span></p>
+                            <p><strong>Email:</strong> <span id="profile-email">-</span></p>
+                            <p><strong>Phone:</strong> <span id="profile-phone">-</span></p>
+                            <p><strong>NID Status:</strong> <span id="profile-nid-status">Not Verified</span></p>
+                            <hr style="margin: 20px 0;">
+                            <form onsubmit="handleNIDSubmit(event)">
+                                <div>
+                                    <label>National ID (for verification):</label>
+                                    <input type="text" id="nid-input" placeholder="Enter your NID">
+                                </div>
+                                <button type="submit">Submit NID</button>
+                            </form>
+                        </div>
+                        <button class="btn-secondary" style="width: 100%; margin-top: 20px; padding: 10px;" onclick="showSection('dashboard')">Back to Dashboard</button>
+                    </div>
+                </div>
+
+                <!-- Transactions Section -->
+                <div id="transactions-section" style="display: none;">
+                    <div class="card">
+                        <h2>Transaction History</h2>
+                        <table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #e5e7eb;">
+                                    <th style="padding: 10px; text-align: left;">Date</th>
+                                    <th style="padding: 10px; text-align: left;">Type</th>
+                                    <th style="padding: 10px; text-align: left;">Amount</th>
+                                    <th style="padding: 10px; text-align: left;">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactions-list"></tbody>
+                        </table>
+                        <button class="btn-secondary" style="width: 100%; margin-top: 20px; padding: 10px;" onclick="showSection('dashboard')">Back to Dashboard</button>
+                    </div>
+                </div>
+
+                <!-- Campaigns Section -->
+                <div id="campaigns-section" style="display: none;">
+                    <h2>Investment Campaigns</h2>
+                    <div class="ads-grid" id="campaigns-container"></div>
+                    <button class="btn-secondary" style="display: block; margin: 30px auto; padding: 10px 20px;" onclick="showSection('dashboard')">Back to Dashboard</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timer Modal -->
+        <div id="timer-modal" class="timer-modal" style="display: none;">
+            <div class="timer-content">
+                <h2>Stay Focused!</h2>
+                <div class="timer-circle" id="timer-display">30</div>
+                <p style="font-size: 16px; color: #1f2937; margin: 20px 0;">Keep this tab open for <strong>30 seconds</strong> to earn the reward</p>
+                <p style="font-size: 14px; color: #6b7280;">Do not close or switch tabs</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000/index.php';
+        let currentUser = null;
+        let isRegistering = false;
+        let selectedPlan = null;
+
+        window.addEventListener('load', () => {
+            const token = localStorage.getItem('token');
+            if (token) {
+                loadDashboard();
+            } else {
+                showLandingPage();
+            }
+        });
+
+        function showLandingPage() {
+            document.getElementById('landing-section').style.display = 'block';
+            document.getElementById('auth-section').style.display = 'none';
+            document.getElementById('main-section').style.display = 'none';
+            document.getElementById('nav-auth-btns').style.display = 'block';
+            document.getElementById('nav-main-btns').style.display = 'none';
+        }
+
+        function showAuthPage() {
+            document.getElementById('landing-section').style.display = 'none';
+            document.getElementById('auth-section').style.display = 'block';
+            document.getElementById('main-section').style.display = 'none';
+            document.getElementById('nav-auth-btns').style.display = 'block';
+            document.getElementById('nav-main-btns').style.display = 'none';
+        }
+
+        function showMainApp() {
+            document.getElementById('landing-section').style.display = 'none';
+            document.getElementById('auth-section').style.display = 'none';
+            document.getElementById('main-section').style.display = 'block';
+            document.getElementById('nav-auth-btns').style.display = 'none';
+            document.getElementById('nav-main-btns').style.display = 'flex';
+        }
+
+        function selectPlan(amount) {
+            selectedPlan = amount;
+            toggleRegister(false);
+            showAuthPage();
+        }
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleRegister() {
+            isRegistering = !isRegistering;
+            const loginWrapper = document.getElementById('login-form-wrapper');
+            const registerWrapper = document.getElementById('register-form-wrapper');
+            const authSubtitle = document.getElementById('auth-subtitle');
+
+            if (isRegistering) {
+                loginWrapper.style.display = 'none';
+                registerWrapper.style.display = 'block';
+                authSubtitle.textContent = 'Create your account today';
+            } else {
+                loginWrapper.style.display = 'block';
+                registerWrapper.style.display = 'none';
+                authSubtitle.textContent = 'Join thousands earning daily';
+            }
+        }
+
+        async function handleAuth(e) {
+            e.preventDefault();
+
+            try {
+                if (isRegistering) {
+                    // Register
+                    const username = document.getElementById('username').value;
+                    const email = document.getElementById('email-reg').value;
+                    const password = document.getElementById('password-reg').value;
+                    const phone = document.getElementById('phone').value;
+                    const role = document.getElementById('role').value;
+
+                    if (!role) {
+                        showMessage('Please select an account type', 'error');
+                        return;
+                    }
+
+                    const response = await fetch(`${API_URL}/api/auth?action=register`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ username, email, password, phone, role })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        showMessage('✓ Account created successfully! Please login now.', 'success');
+                        setTimeout(() => {
+                            isRegistering = false;
+                            toggleRegister();
+                            document.getElementById('register-form-actual').reset();
+                        }, 1500);
+                    } else {
+                        showMessage(data.error || 'Registration failed', 'error');
+                    }
+                } else {
+                    // Login
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+
+                    const response = await fetch(`${API_URL}/api/auth?action=login`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, password })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok && data.token) {
+                        localStorage.setItem('token', data.token);
+                        showMessage('✓ Login successful! Loading dashboard...', 'success');
+                        setTimeout(() => loadDashboard(), 1000);
+                    } else {
+                        showMessage(data.error || 'Login failed', 'error');
+                    }
+                }
+            } catch (err) {
+                showMessage('Error: ' + err.message, 'error');
+            }
+        }
+
+        async function loadDashboard() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                showLandingPage();
+                return;
+            }
+
+            try {
+                const profileRes = await fetch(`${API_URL}/api/users?action=profile`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (!profileRes.ok) {
+                    localStorage.removeItem('token');
+                    showLandingPage();
+                    return;
+                }
+
+                currentUser = await profileRes.json();
+                document.getElementById('wallet-balance').textContent = currentUser.wallet_balance + '.00 TK';
+                document.getElementById('profile-username').textContent = currentUser.username;
+                document.getElementById('profile-email').textContent = currentUser.email;
+                document.getElementById('profile-phone').textContent = currentUser.phone || '-';
+                document.getElementById('profile-nid-status').textContent = currentUser.nid_verified ? '✓ Verified' : 'Pending';
+
+                showMainApp();
+                loadAds();
+                loadTransactions();
+                loadCampaigns();
+
+            } catch (err) {
+                showMessage('Failed to load dashboard: ' + err.message, 'error');
+            }
+        }
+
+        async function loadAds() {
+            const token = localStorage.getItem('token');
+            try {
+                const res = await fetch(`${API_URL}/api/ads?action=list`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                const data = await res.json();
+                document.getElementById('clicks-today').textContent = data.clicks_today;
+                document.getElementById('remaining-ads').textContent = (5 - data.clicks_today);
+                document.getElementById('earned-today').textContent = (Math.floor(data.clicks_today / 30) * 5) + ' TK';
+
+                const container = document.getElementById('ads-container');
+                container.innerHTML = '';
+
+                if (data.ads.length === 0) {
+                    container.innerHTML = '<p style="color: #6b7280;">No ads available right now. Check back later!</p>';
+                    return;
+                }
+
+                if (!data.can_click_more) {
+                    document.getElementById('daily-limit-msg').style.display = 'block';
+                }
+
+                data.ads.forEach(ad => {
+                    const adCard = document.createElement('div');
+                    adCard.className = 'ad-card';
+                    adCard.innerHTML = `
+                        <div class="ad-title">${ad.title}</div>
+                        <div class="ad-description">${ad.description || 'Click and view this sponsored link'}</div>
+                        <div class="ad-reward">+${ad.reward_value} TK</div>
+                        <button class="btn-click" onclick="startAdSession(${ad.ad_id})" ${!data.can_click_more ? 'disabled' : ''}>
+                            ${data.can_click_more ? 'View Ad (30 sec)' : 'Daily Limit Reached'}
+                        </button>
+                    `;
+                    container.appendChild(adCard);
+                });
+
+            } catch (err) {
+                showMessage('Failed to load ads: ' + err.message, 'error');
+            }
+        }
+
+        async function startAdSession(adId) {
+            const token = localStorage.getItem('token');
+            try {
+                const res = await fetch(`${API_URL}/api/ads?action=click-session`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ ad_id: adId })
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    showMessage(data.error || 'Failed to start session', 'error');
+                    return;
+                }
+
+                document.getElementById('timer-modal').style.display = 'flex';
+                const timerDisplay = document.getElementById('timer-display');
+                let seconds = 30;
+
+                const interval = setInterval(() => {
+                    seconds--;
+                    timerDisplay.textContent = seconds;
+
+                    if (seconds === 0) {
+                        clearInterval(interval);
+                        completeAdClick(data.session_id, adId);
+                    }
+                }, 1000);
+
+            } catch (err) {
+                showMessage('Error: ' + err.message, 'error');
+            }
+        }
+
+        async function completeAdClick(sessionId, adId) {
+            const token = localStorage.getItem('token');
+            try {
+                const res = await fetch(`${API_URL}/api/ads?action=click-complete`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ session_id: sessionId, ad_id: adId })
+                });
+
+                const data = await res.json();
+                document.getElementById('timer-modal').style.display = 'none';
+
+                if (res.ok) {
+                    showMessage(`✓ Ad completed! +${data.reward_earned} TK earned. (${data.clicks_today}/5 ads today)`, 'success');
+                    loadAds();
+                } else {
+                    showMessage(data.error || 'Failed to record click', 'error');
+                }
+            } catch (err) {
+                document.getElementById('timer-modal').style.display = 'none';
+                showMessage('Error: ' + err.message, 'error');
+            }
+        }
+
+        async function handleDeposit(e) {
+            e.preventDefault();
+            const token = localStorage.getItem('token');
+            const amount = document.getElementById('deposit-amount').value;
+            const method = document.getElementById('payment-method').value;
+            const trxId = document.getElementById('payment-trx-id').value;
+
+            try {
+                const res = await fetch(`${API_URL}/api/transactions?action=deposit`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ amount: parseFloat(amount), payment_method: method, payment_trx_id: trxId })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    showMessage(data.message, 'success');
+                    document.getElementById('deposit-amount').value = '';
+                    document.getElementById('payment-trx-id').value = '';
+                    setTimeout(() => showSection('dashboard'), 2000);
+                } else {
+                    showMessage(data.error || 'Deposit failed', 'error');
+                }
+            } catch (err) {
+                showMessage('Error: ' + err.message, 'error');
+            }
+        }
+
+        async function handleWithdraw(e) {
+            e.preventDefault();
+            const token = localStorage.getItem('token');
+            const amount = document.getElementById('withdraw-amount').value;
+            const method = document.getElementById('withdraw-method').value;
+            const phone = document.getElementById('withdraw-phone').value;
+
+            try {
+                const res = await fetch(`${API_URL}/api/transactions?action=withdraw`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ amount: parseFloat(amount), payment_method: method, payment_trx_id: phone })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    showMessage(data.message, 'success');
+                    document.getElementById('withdraw-amount').value = '';
+                    document.getElementById('withdraw-phone').value = '';
+                    setTimeout(() => showSection('dashboard'), 2000);
+                } else {
+                    showMessage(data.error || 'Withdrawal failed', 'error');
+                }
+            } catch (err) {
+                showMessage('Error: ' + err.message, 'error');
+            }
+        }
+
+        async function handleNIDSubmit(e) {
+            e.preventDefault();
+            const token = localStorage.getItem('token');
+            const nid = document.getElementById('nid-input').value;
+
+            try {
+                const res = await fetch(`${API_URL}/api/users?action=verify-nid`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ nid })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    showMessage(data.message, 'success');
+                    document.getElementById('nid-input').value = '';
+                    setTimeout(() => loadDashboard(), 2000);
+                } else {
+                    showMessage(data.error || 'Failed to submit NID', 'error');
+                }
+            } catch (err) {
+                showMessage('Error: ' + err.message, 'error');
+            }
+        }
+
+        async function loadTransactions() {
+            const token = localStorage.getItem('token');
+            try {
+                const res = await fetch(`${API_URL}/api/transactions?action=list`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                const transactions = await res.json();
+                const list = document.getElementById('transactions-list');
+                list.innerHTML = '';
+
+                if (transactions.length === 0) {
+                    list.innerHTML = '<tr><td colspan="4" style="padding: 20px; text-align: center; color: #999;">No transactions yet</td></tr>';
+                    return;
+                }
+
+                transactions.forEach(trx => {
+                    const row = document.createElement('tr');
+                    row.style.borderBottom = '1px solid #e5e7eb';
+                    const date = new Date(trx.created_at).toLocaleDateString();
+                    const statusColor = trx.status === 'approved' ? '#4caf50' : trx.status === 'pending' ? '#f59e0b' : '#ef4444';
+                    row.innerHTML = `
+                        <td style="padding: 10px;">${date}</td>
+                        <td style="padding: 10px;">${trx.trx_type}</td>
+                        <td style="padding: 10px;">${trx.amount} TK</td>
+                        <td style="padding: 10px; color: ${statusColor}; font-weight: 600;">${trx.status}</td>
+                    `;
+                    list.appendChild(row);
+                });
+
+            } catch (err) {
+                console.error('Failed to load transactions:', err);
+            }
+        }
+
+        async function loadCampaigns() {
+            const token = localStorage.getItem('token');
+            try {
+                const res = await fetch(`${API_URL}/api/campaigns?action=list`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                const campaigns = await res.json();
+                const container = document.getElementById('campaigns-container');
+                container.innerHTML = '';
+
+                if (campaigns.length === 0) {
+                    container.innerHTML = '<p style="color: #6b7280;">No active campaigns at the moment.</p>';
+                    return;
+                }
+
+                campaigns.forEach(campaign => {
+                    const progress = Math.round((campaign.raised_amount / campaign.target_amount) * 100);
+                    const card = document.createElement('div');
+                    card.className = 'ad-card';
+                    card.innerHTML = `
+                        <div class="ad-title">${campaign.title}</div>
+                        <div class="ad-description">${campaign.description || 'Investment opportunity'}</div>
+                        <div style="margin: 15px 0;">
+                            <div style="background: #f0f0f0; height: 8px; border-radius: 4px; overflow: hidden;">
+                                <div style="background: #667eea; height: 100%; width: ${progress}%;" ></div>
+                            </div>
+                            <p style="font-size: 12px; color: #6b7280; margin-top: 5px;">${campaign.raised_amount} / ${campaign.target_amount} BDT (${progress}%)</p>
+                        </div>
+                        <button class="btn-click" onclick="investCampaign(${campaign.campaign_id})">Invest Now</button>
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch (err) {
+                console.error('Failed to load campaigns:', err);
+            }
+        }
+
+        async function investCampaign(campaignId) {
+            const amount = prompt('Enter investment amount (BDT):');
+            if (!amount || amount <= 0) return;
+
+            const token = localStorage.getItem('token');
+            try {
+                const res = await fetch(`${API_URL}/api/campaigns?action=invest`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ campaign_id: campaignId, amount: parseFloat(amount) })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    showMessage(data.message, 'success');
+                    loadDashboard();
+                } else {
+                    showMessage(data.error || 'Investment failed', 'error');
+                }
+            } catch (err) {
+                showMessage('Error: ' + err.message, 'error');
+            }
+        }
+
+        function showSection(section) {
+            // Home page sections
+            ['home', 'features', 'pricing', 'how-it-works', 'stats', 'testimonials', 'security', 'auth', 'footer'].forEach(s => {
+                const el = document.getElementById(s + '-section');
+                if (el) el.style.display = s === section ? 'block' : 'none';
+            });
+
+            // Dashboard sections
+            ['dashboard', 'deposit', 'withdraw', 'profile', 'transactions', 'campaigns'].forEach(s => {
+                const el = document.getElementById(s + '-section');
+                if (el) el.style.display = s === section ? 'block' : 'none';
+            });
+
+            // Reset auth forms when showing auth
+            if (section === 'auth') {
+                isRegistering = false;
+                document.getElementById('login-form-wrapper').style.display = 'block';
+                document.getElementById('register-form-wrapper').style.display = 'none';
+                if (document.getElementById('login-form-actual')) document.getElementById('login-form-actual').reset();
+                if (document.getElementById('register-form-actual')) document.getElementById('register-form-actual').reset();
+            }
+        }
+
+        function showMessage(msg, type) {
+            const successEl = document.getElementById('success-msg');
+            const errorEl = document.getElementById('error-msg');
+
+            if (type === 'success') {
+                successEl.textContent = msg;
+                successEl.classList.add('show');
+                errorEl.classList.remove('show');
+                setTimeout(() => successEl.classList.remove('show'), 4000);
+            } else {
+                errorEl.textContent = msg;
+                errorEl.classList.add('show');
+                successEl.classList.remove('show');
+                setTimeout(() => errorEl.classList.remove('show'), 4000);
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            showLandingPage();
+            document.getElementById('auth-form').reset();
+        }
+    </script>
+</body>
+</html>

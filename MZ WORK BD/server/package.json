@@ -1,0 +1,25 @@
+{
+  "name": "mz-profit-bd-server",
+  "version": "1.0.0",
+  "description": "MZ Profit BD Backend API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0",
+    "dotenv": "^16.0.3",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "joi": "^17.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "jest": "^29.5.0"
+  }
+}
